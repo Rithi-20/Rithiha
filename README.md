@@ -2,7 +2,7 @@
 
 Welcome to my learning repository!
 
-This repository serves as a central place to document my learning journey in Software Development, Artificial Intelligence, Machine Learning, and related technologies.
+This repository serves as a central place to document my learning journey in Excel, PowerBI, Artificial Intelligence, Machine Learning, and related technologies.
 
 My goal is not only to learn new concepts but also to practice them by writing code, building mini-projects, solving problems, and documenting everything I learn. This repository helps me track my progress and continuously improve my technical skills.
 
@@ -81,18 +81,13 @@ Learning-Journey/
 │
 ├── Git & GitHub
 ├── Python
-├── Data Structures
-├── Algorithms
 ├── SQL
 ├── MongoDB
 ├── Machine Learning
 ├── Deep Learning
-├── Computer Vision
-├── NLP
 ├── LLM
 ├── Agentic AI
 ├── RAG
-├── Backend Development
 ├── Docker
 ├── MLOps
 ├── Cloud
@@ -103,18 +98,6 @@ Learning-Journey/
 
 ---
 
-# 📌 What You'll Find Here
-
-- 📖 Learning Notes
-- 💻 Practice Programs
-- 🧩 Coding Exercises
-- 🚀 Mini Projects
-- 📂 Project Source Code
-- 📑 Resources
-- 📝 Documentation
-- ⚡ Experiments
-
----
 
 # 🌱 Learning Philosophy
 
