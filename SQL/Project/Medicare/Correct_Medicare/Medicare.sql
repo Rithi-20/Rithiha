@@ -33352,26 +33352,72 @@ INSERT INTO Payments (payment_id, bill_id, patient_id, payment_date, payment_amo
 ('PY004999', 'BL003579', 'PT001269', '2024-10-01', 23667.85, 'Insurance Claim', 'Success'),
 ('PY005000', 'BL000343', 'PT000214', '2024-08-21', 19940.26, 'Net Banking', 'Success');
 
-USE Medicare;
-DROP TABLE IF EXISTS Payments;
-DROP TABLE IF EXISTS Billing;
-DROP TABLE IF EXISTS Employees;
-DROP TABLE IF EXISTS Laboratory;
-DROP TABLE IF EXISTS Pharmacy;
-DROP TABLE IF EXISTS Medicines;
-DROP TABLE IF EXISTS Insurance;
-DROP TABLE IF EXISTS Treatments;
-DROP TABLE IF EXISTS Admissions;
-DROP TABLE IF EXISTS Appointments;
-DROP TABLE IF EXISTS Rooms;
-DROP TABLE IF EXISTS Patients;
-DROP TABLE IF EXISTS Departments;
-DROP TABLE IF EXISTS Doctors;
+#DROP TABLE IF EXISTS Payments;
+#DROP TABLE IF EXISTS Billing;
+#DROP TABLE IF EXISTS Employees;
+#DROP TABLE IF EXISTS Laboratory;
+#DROP TABLE IF EXISTS Pharmacy;
+#DROP TABLE IF EXISTS Medicines;
+#DROP TABLE IF EXISTS Insurance;
+#DROP TABLE IF EXISTS Treatments;
+#DROP TABLE IF EXISTS Admissions;
+#DROP TABLE IF EXISTS Appointments;
+#DROP TABLE IF EXISTS Rooms;
+#DROP TABLE IF EXISTS Patients;
+#DROP TABLE IF EXISTS Departments;
+#DROP TABLE IF EXISTS Doctors;
 
-
+# Display all the tables 
 SHOW TABLES;
+
+# Describe will display the fieldname, datatype, contraints, keys in tabular format 
 DESCRIBE Doctors;
+
+# It is similar to Describe but it will display the exact query which has been written while creating
 SHOW CREATE TABLE Doctors;
 
-CREATE DATABASE MEDICARES;
+# To Drop a Database
 DROP DATABASE MEDICARES;
+
+# This will return the databases that are in use 
+SELECT DATABASE();
+
+# This will Count the number of records in that table
+SELECT COUNT(*) FROM Hospitals;
+SELECT COUNT(*) FROM Departments;
+SELECT COUNT(*) FROM Doctors;
+SELECT COUNT(*) FROM Patients;
+SELECT COUNT(*) FROM Rooms;
+SELECT COUNT(*) FROM Appointments;
+SELECT COUNT(*) FROM Admissions;
+SELECT COUNT(*) FROM Treatments;
+SELECT COUNT(*) FROM Insurance;
+SELECT COUNT(*) FROM Medicines;
+SELECT COUNT(*) FROM Pharmacy;
+SELECT COUNT(*) FROM Laboratory;
+SELECT COUNT(*) FROM Employees;
+SELECT COUNT(*) FROM Billing;
+SELECT COUNT(*) FROM Payments;
+
+# To identify the NULL values in tables
+SELECT *
+FROM Patients
+WHERE patient_id IS NULL
+   OR first_name IS NULL
+   OR last_name IS NULL
+   OR gender IS NULL
+   OR date_of_birth IS NULL
+   OR age IS NULL
+   OR city IS NULL
+   OR state IS NULL
+   OR phone_number IS NULL
+   OR email IS NULL
+   OR blood_group IS NULL
+   OR registration_date IS NULL;
+   
+# To identify the duplicates
+SELECT department_id, COUNT(*)
+FROM Doctors
+GROUP BY department_id
+HAVING COUNT(*) > 1;
+
