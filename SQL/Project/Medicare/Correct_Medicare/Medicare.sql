@@ -33370,7 +33370,7 @@ INSERT INTO Payments (payment_id, bill_id, patient_id, payment_date, payment_amo
 # Display all the tables 
 SHOW TABLES;
 
-# Describe will display the fieldname, datatype, contraints, keys in tabular format 
+# Describe will display the fieldname, datatype, contraints, keys in tabular format (MUL - Multiple key [It includes foreign key])
 DESCRIBE Doctors;
 
 # It is similar to Describe but it will display the exact query which has been written while creating
@@ -33383,7 +33383,7 @@ DROP DATABASE MEDICARES;
 SELECT DATABASE();
 
 # This will Count the number of records in that table
-SELECT COUNT(*) FROM Hospitals;
+SELECT COUNT(*) AS Total_Hospitals FROM Hospitals;
 SELECT COUNT(*) FROM Departments;
 SELECT COUNT(*) FROM Doctors;
 SELECT COUNT(*) FROM Patients;
@@ -33420,4 +33420,129 @@ SELECT department_id, COUNT(*)
 FROM Doctors
 GROUP BY department_id
 HAVING COUNT(*) > 1;
+
+# To retrieve all datas top 5
+SELECT * FROM Hospitals LIMIT 5;
+
+# Duplicate check - Hospital
+SELECT hospital_id, COUNT(*) AS Count
+FROM Hospitals
+GROUP BY hospital_id
+HAVING COUNT(*) = 1;
+
+# Check null values - Department
+SELECT * FROM Departments WHERE head_doctor_id IS NULL;
+
+SELECT * FROM Doctors;
+
+# Display the first occurence of data 
+SELECT DISTINCT gender FROM Doctors;
+
+# Count the gender in different formats and group them 
+SELECT gender, COUNT(*) 
+FROM Doctors 
+group by gender;
+
+SELECT gender,doctor_id FROM Doctors;
+
+# Preview the male and female and change them 
+SELECT gender, 
+CASE 
+WHEN LOWER(TRIM(gender)) IN ('male','m')
+THEN 'Male'
+WHEN LOWER(TRIM(gender)) IN ('female','f')
+THEN 'Female'
+ELSE gender
+END AS Cleaned_gender
+FROM Doctors;
+
+Select Cleaned_gender FROM (
+Select 
+CASE 
+WHEN LOWER(TRIM(gender)) IN ('male','m')
+THEN 'Male'
+WHEN LOWER(TRIM(gender)) IN ('female','f')
+THEN 'Female'
+ELSE gender
+END AS Cleaned_gender
+FROM Doctors
+) AS D;
+
+
+# Update the changed male and female column in the tables
+ UPDATE Doctors 
+ SET gender=
+ CASE 
+WHEN LOWER(TRIM(gender)) IN ('male','m')
+THEN 'Male'
+WHEN LOWER(TRIM(gender)) IN ('female','f')
+THEN 'Female'
+ELSE gender
+END;
+
+# set sql_SAFE_UPDATES=0;
+
+
+# Data Profiling
+# Departments table- head_doctor_id is null
+SELECT * from Departments where head_doctor_id is null ;
+
+# Doctors - gender is in different formats
+SELECT DISTINCT gender, COUNT(*)
+from Doctors
+Group by gender;
+
+# Doctors - department_id is blank
+SELECT * FROM Doctors where department_id IS NULL;
+
+# Doctors - email is blank
+SELECT * FROM Doctors where email IS NULL;
+# Check email format
+SELECT * FROM Doctors where email NOT REGEXP '^[A-Za-z0-9_%.-]+@[A-Za-z0-9-_.]+\\.[A-Za-z]{2,}$';
+
+# Patients - Traling and leading spaces in first name
+SELECT * from Patients where first_name <> ltrim(first_name);
+
+# Patients - gender in different formats
+SELECT gender, count(*) 
+FROM Patients 
+group by gender;
+
+#Patient - Check for email blanks
+SELECT * FROM Patients where email is null;
+# to check the email format 
+SELECT * from Patients where email not regexp '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[a-zA-Z]{2,}';
+SELECT * from Patients where email NOT like '%@%.%'; # this is another method to find invalid email, % includes any character
+
+#Admissions - check for blanks in department_id
+SELECT * from Admissions where department_id is null;
+
+#Admissions - check for blanks in discharge_date
+SELECT * from Admissions where discharge_date is null;
+
+# Treatments - check for blanks in Admission_id
+SELECT  * FROM Treatments where Admission_id is null;
+
+# Insurance - check for blanks in insurance_provider
+SELECT  * FROM Insurance where insurance_provider is null;
+
+# Employee gender different formats 
+SELECT gender, count(*) 
+from Employee
+group by gender;
+
+# Employees - blanks in department_id
+SELECT * FROM Employees where department_id is null;
+# Employees - Checked whther the email is in correct format 
+SELECT * FROM Employees where email regexp '^[A-Za-z0-9._%-]+@[A-Za-z0-9.%-]+\\.[A-Za-z]{2,}';
+
+# Billing - blanks in admission_id
+SELECT * FROM Billing where admission_id is null;
+
+# Employees - blanks in appointment_id
+SELECT * FROM Billing where appointment_id is null;
+
+
+
+
 

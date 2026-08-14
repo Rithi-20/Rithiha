@@ -210,3 +210,15 @@ CREATE TABLE Payments (
 
     CONSTRAINT pk_payments PRIMARY KEY (payment_id)
 );
+
+"""Select Cleaned_gender FROM (
+Select 
+CASE 
+WHEN LOWER(TRIM(gender)) IN ('male','m')
+THEN 'Male'
+WHEN LOWER(TRIM(gender)) IN ('female','f')
+THEN 'Female'
+ELSE gender
+END AS Cleaned_gender
+FROM Doctors
+) AS D; """
