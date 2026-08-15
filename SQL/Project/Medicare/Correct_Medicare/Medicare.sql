@@ -33469,7 +33469,74 @@ FROM Doctors
 ) AS D;
 
 
-# Update the changed male and female column in the tables
+
+
+# set sql_SAFE_UPDATES=0;
+
+# =========================================================================================================================================================================================
+# Data Profiling
+#====================================================================================================================================================================================================
+# 1. Departments table- head_doctor_id is null
+SELECT * from Departments where head_doctor_id is null ;
+
+# 2. Doctors - gender is in different formats
+SELECT DISTINCT gender, COUNT(*)
+from Doctors
+Group by gender;
+
+# 3. Doctors - department_id is blank
+SELECT * FROM Doctors where department_id IS NULL;
+
+# 4. Doctors - email is blank
+SELECT * FROM Doctors where email IS NULL;
+# 5. Check email format
+SELECT * FROM Doctors where email NOT REGEXP '^[A-Za-z0-9_%.-]+@[A-Za-z0-9-_.]+\\.[A-Za-z]{2,}$';
+
+# 6. Patients - Traling and leading spaces in first name
+SELECT * from Patients where first_name <> ltrim(first_name);
+
+# 7. Patients - gender in different formats
+SELECT gender, count(*) 
+FROM Patients 
+group by gender;
+
+# 8. Patient - Check for email blanks
+SELECT * FROM Patients where email is null;
+# 9. to check the email format 
+SELECT * from Patients where email not regexp '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[a-zA-Z]{2,}';
+SELECT * from Patients where email NOT like '%@%.%'; # this is another method to find invalid email, % includes any character
+
+# 10. Admissions - check for blanks in department_id
+SELECT * from Admissions where department_id is null;
+
+# 11. Admissions - check for blanks in discharge_date
+SELECT * from Admissions where discharge_date is null;
+
+# 12. Treatments - check for blanks in Admission_id
+SELECT  * FROM Treatments where Admission_id is null;
+
+# 13. Insurance - check for blanks in insurance_provider
+SELECT  * FROM Insurance where insurance_provider is null;
+
+# 14. Employee gender different formats 
+SELECT gender, count(*) 
+from Employee
+group by gender;
+
+# 15. Employees - blanks in department_id
+SELECT * FROM Employees where department_id is null;
+
+
+# 16. Billing - blanks in admission_id
+SELECT * FROM Billing where admission_id is null;
+
+# 17. Employees - blanks in appointment_id
+SELECT * FROM Billing where appointment_id is null;
+
+# ==============================================================================================================================================================================================
+# Data Cleaning
+#=====================================================================================================================================================================================================
+# 2. Update the changed male and female column in the tables - Doctors
  UPDATE Doctors 
  SET gender=
  CASE 
@@ -33480,69 +33547,96 @@ THEN 'Female'
 ELSE gender
 END;
 
-# set sql_SAFE_UPDATES=0;
+# 5. Doctors - Cleaning the emails which are in wrong format
+# This is previewing
+SELECT 
+email AS old_email,
+CASE
+WHEN email LIKE '%gmail.com' AND email NOT LIKE '%@%'
+THEN REPLACE(email,'gmail.com','@gmail.com') 
+WHEN email LIKE '%@gmail'
+THEN REPLACE(email,'@gmail','@gmail.com') # THEN CONCAT(email,'.com')
+WHEN email LIKE '%@@gmail.com' 
+THEN REPLACE(email,'@@gmail.com','@gmail.com')
+ELSE email
+END AS new_email
+FROM Doctors;
 
+# Updating
+update Doctors 
+SET email=
+CASE
+WHEN email LIKE '%gmail.com' AND email NOT LIKE '%@%'
+THEN REPLACE(email,'gmail.com','@gmail.com') 
+WHEN email LIKE '%@gmail'
+THEN REPLACE(email,'@gmail','@gmail.com') # THEN CONCAT(email,'.com')
+WHEN email LIKE '%@@gmail.com' 
+THEN REPLACE(email,'@@gmail.com','@gmail.com')
+ELSE email
+END 
+WHERE email not like '%@%.%' or
+	email like '%@@%.%';
+#SET SQL_SAFE_UPDATES = 0; - When using the Upadate query where condition is applicable for id alone but when we try to use other columns in where condition then it shows sql safe error so to fix it we use this query 
 
-# Data Profiling
-# Departments table- head_doctor_id is null
-SELECT * from Departments where head_doctor_id is null ;
+# 6. Patients - Trim the first_name column
+UPDATE Patients 
+SET first_name=ltrim(first_name)
+WHERE first_name <> LTRIM(first_name);
 
-# Doctors - gender is in different formats
-SELECT DISTINCT gender, COUNT(*)
-from Doctors
-Group by gender;
+# 7. Patients - gender in different format
+SELECT DISTINCT gender from Patients;
+# Preview
+SELECT gender ,
+CASE
+WHEN lower(trim(gender)) in ('m','male')
+THEN 'Male'
+WHEN lower(trim(gender)) in ('f','female')
+THEN 'Female'
+END
+FROM Patients;
 
-# Doctors - department_id is blank
-SELECT * FROM Doctors where department_id IS NULL;
+# Update 
+update Patients 
+set gender =
+CASE
+WHEN lower(trim(gender)) in ('m','male')
+THEN 'Male'
+WHEN lower(trim(gender)) in ('f','female')
+THEN 'Female'
+ELSE gender
+END;
 
-# Doctors - email is blank
-SELECT * FROM Doctors where email IS NULL;
-# Check email format
-SELECT * FROM Doctors where email NOT REGEXP '^[A-Za-z0-9_%.-]+@[A-Za-z0-9-_.]+\\.[A-Za-z]{2,}$';
+# 9. Patients - email format is not correct
+SELECT email AS old_email, 
+CASE
+WHEN email LIKE '%gmail.com' AND email not like '%@%'
+THEN REPLACE(email,'%gmail.com','%@gmail.com')
+WHEN email like '%gmail'
+then concat(email,'.com')
+else email
+end as new_email
+FROM Patients;
 
-# Patients - Traling and leading spaces in first name
-SELECT * from Patients where first_name <> ltrim(first_name);
+# Update 
+UPDATE Patients 
+set email=
+CASE
+WHEN email LIKE '%gmail.com' AND email not like '%@%'
+THEN REPLACE(email,'gmail.com','@gmail.com')
+WHEN email like '%gmail'
+then concat(email,'.com')
+else email
+end
+where email not like '%@%.%';
 
-# Patients - gender in different formats
-SELECT gender, count(*) 
-FROM Patients 
-group by gender;
-
-#Patient - Check for email blanks
-SELECT * FROM Patients where email is null;
-# to check the email format 
-SELECT * from Patients where email not regexp '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[a-zA-Z]{2,}';
-SELECT * from Patients where email NOT like '%@%.%'; # this is another method to find invalid email, % includes any character
-
-#Admissions - check for blanks in department_id
-SELECT * from Admissions where department_id is null;
-
-#Admissions - check for blanks in discharge_date
-SELECT * from Admissions where discharge_date is null;
-
-# Treatments - check for blanks in Admission_id
-SELECT  * FROM Treatments where Admission_id is null;
-
-# Insurance - check for blanks in insurance_provider
-SELECT  * FROM Insurance where insurance_provider is null;
-
-# Employee gender different formats 
-SELECT gender, count(*) 
-from Employee
-group by gender;
-
-# Employees - blanks in department_id
-SELECT * FROM Employees where department_id is null;
-# Employees - Checked whther the email is in correct format 
-SELECT * FROM Employees where email regexp '^[A-Za-z0-9._%-]+@[A-Za-z0-9.%-]+\\.[A-Za-z]{2,}';
-
-# Billing - blanks in admission_id
-SELECT * FROM Billing where admission_id is null;
-
-# Employees - blanks in appointment_id
-SELECT * FROM Billing where appointment_id is null;
-
-
-
-
-
+# 14. Employee - gender in different format 
+select distinct gender from Employees;
+UPDATE Employees
+set gender =
+CASE
+when lower(trim(gender)) in ('male','m')
+then 'Male'
+when lower(trim(gender)) in ('female','f')
+then 'Female'
+else gender
+end;
