@@ -410,7 +410,7 @@ This converts the dashboard from a reporting tool into a decision-making tool by
 The final TrendKart dashboard provides an interactive view of sales and
 profit performance using KPI cards, slicers and multiple charts.
 
-![TrendKart Dashboard](dashboard/dashboard_Trendkart.png)
+![TrendKart Dashboard](Excel/Project/TrendKart/Dashboard/Dashboard_Trendkart.png)
 
 ------------------------------------------------------------------------
 
