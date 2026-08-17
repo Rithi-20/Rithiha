@@ -318,7 +318,7 @@ This approach directly addresses the business problem identified from the transa
 The final Excel dashboard provides an interactive view of FreshMart's
 performance using KPI cards, slicers and charts.
 
-![FreshMart Dashboard](dashboard/FreshMart_Dashboard.png)
+![FreshMart Dashboard](<FreshMart_Dashboard.png>)
 
 ------------------------------------------------------------------------
 
