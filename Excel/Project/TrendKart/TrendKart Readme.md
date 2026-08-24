@@ -2,57 +2,57 @@
 
 ## Business Problem
 
-### Why did TrendKart sales fall sharply in November 2024 compared with October 2024?
+### Why did TrendKart's sales fall sharply in November 2024 compared with October 2024?
 
-TrendKart recorded its strongest monthly sales in **October 2024 at ₹15.19 lakh**, but sales fell to **₹10.54 lakh in November 2024**, a **30.6% month-on-month decline**.
+TrendKart recorded its strongest monthly sales in **October 2024 at approximately ₹15.19 lakh**, but sales fell to **approximately ₹10.54 lakh in November 2024**, representing a **30.6% month-on-month decline**.
 
-The decline was mainly driven by **fewer orders**, not by customers spending less per order. Orders decreased from **512 to 351 (31.4%)**, while quantity sold fell from **1,046 to 712 (31.9%)**. In contrast, average order value actually increased slightly from **₹2,967 to ₹3,004 (1.2%)**.
+The decline was mainly driven by a reduction in transaction volume. Orders decreased from **512 to 351 (31.4%)**, while quantity sold decreased from **1,046 to 712 (31.9%)**. In contrast, average order value increased slightly from approximately **₹2,967 to ₹3,004 (1.2%)**.
 
-This means the key business problem is a **drop in transaction/customer volume after the October sales peak**.
+This indicates that the November decline was primarily a **volume problem rather than a reduction in customer spending per order**.
 
 ### What contributed to the decline?
 
-- **Offline sales** fell by approximately **₹3.47 lakh (34.1%)**, making it the largest channel-level contributor to the decline.
-- **Online sales** also fell by approximately **₹1.18 lakh (23.5%)**.
-- **Handbags** fell by **46.9%**, **Women Sarees by 43.7%**, and **Footwear by 42.9%**.
-- **South Zone 1**, the largest region, fell by approximately **₹2.45 lakh (32.7%)**.
-- **South Zone 2** declined by **38.0%**.
-- **Weekend sales** fell by **42.7%**, compared with a **25.3%** decline on weekdays.
-- Credit Card sales fell by **50.0%**, while EMI sales fell by **47.7%**.
-- Profit decreased from **₹3.01 lakh to ₹1.95 lakh**, a **35.4% decline**.
+- **Offline sales** fell by approximately **₹3.47 lakh (34.1%)**, making it the largest channel-level contributor.
+- **Online sales** fell by approximately **₹1.18 lakh (23.5%)**.
+- **Handbags** declined by approximately **46.9%**.
+- **Women Sarees** declined by approximately **43.7%**.
+- **Footwear** declined by approximately **42.9%**.
+- **South Zone 1** declined by approximately **32.7%** and recorded the largest absolute regional decline.
+- **South Zone 2** declined by approximately **38.0%**.
+- **Weekend sales** fell by approximately **42.7%**, compared with a **25.3%** decline on weekdays.
+- Profit decreased from approximately **₹3.01 lakh to ₹1.95 lakh**, a **35.4% decline**.
 
-The decline is therefore broad-based, but the largest pressure came from the **offline channel, high-value fashion categories, South Zone 1, and weekend transactions**.
+The decline is therefore broad-based, with significant pressure coming from transaction volume, the Offline channel, major fashion categories and key regions.
+
+### Business Objective
+
+**Recover lost transaction volume and improve post-peak customer retention while maintaining average order value and profitability.**
 
 ### Solution
 
-TrendKart should focus on **recovering customer/order traffic after the October peak**, while retaining the higher average order value.
+TrendKart should focus on recovering customer and order traffic after the October peak while using the dashboard to identify the products, categories, channels and regions that experienced the largest decline.
 
-1. **Rebuild post-October customer traffic**
-   - Launch November retention campaigns for customers who purchased during October.
-   - Use loyalty points, personalized offers and limited-time promotions to encourage repeat purchases.
-   - Measure success using order count and repeat-customer rate, not only revenue.
+1. **Recover transaction volume**
+   - Focus on increasing order/customer traffic rather than only increasing average order value.
+   - Use October customers as a target group for repeat-purchase campaigns.
+   - Track order count and average order value together.
 
-2. **Strengthen the offline channel**
-   - Since Offline sales fell by ₹3.47 lakh, investigate store-level performance in the affected regions.
-   - Use in-store promotions and category-specific displays for high-performing products.
+2. **Strengthen the affected sales channels**
+   - Investigate the Offline channel because it recorded the largest absolute sales decline.
+   - Review Online performance and identify opportunities to recover lost digital sales.
 
-3. **Recover high-impact categories**
-   - Prioritize Handbags, Women Sarees, Watches, Footwear and Men Ethnic because their sales declined substantially.
-   - Check inventory levels and identify whether stock availability contributed to the decline.
+3. **Recover high-impact categories and products**
+   - Prioritize categories with the largest October-to-November decline.
+   - Identify products with the highest sales loss and investigate inventory, demand and promotional performance.
 
-4. **Target weekend demand**
-   - Weekend sales dropped 42.7%, so TrendKart can introduce weekend-only offers, events and bundled fashion deals.
-   - Use store-level promotions in locations with the largest weekend decline.
+4. **Investigate regional performance**
+   - Review South Zone 1 and South Zone 2 at store level.
+   - Identify stores that experienced the largest decline and compare their October and November performance.
 
-5. **Protect the strongest region**
-   - South Zone 1 lost approximately ₹2.45 lakh in sales.
-   - Compare store performance within South Zone 1 to identify underperforming stores and replicate successful October practices where appropriate.
-
-6. **Use October as a benchmark, not as the normal baseline**
-   - October was an unusually strong month, so management should compare November with both October and the longer-term monthly average.
-   - This avoids treating a seasonal peak as the normal sales level.
-
-**Business objective:** Recover lost transaction volume and improve post-peak customer retention while maintaining the average order value and profitability.
+5. **Use the dashboard for ongoing monitoring**
+   - Compare monthly sales and profit.
+   - Monitor channel, category, product and regional changes.
+   - Use October as a strong benchmark while also considering longer-term monthly performance.
 
 ---
 
@@ -60,12 +60,12 @@ TrendKart should focus on **recovering customer/order traffic after the October 
 
 The project uses the provided **TrendKart Fashion Enterprise Dataset** in Excel format.
 
-### Dataset structure
+### Dataset Structure
 
 | Sheet / Data | Details |
 |---|---|
 | `Sales Transactions` | 3,000 transaction-level sales records used for analysis |
-| `Customers` | 850 customer demographics, region and membership details |
+| `Customers` | 850 customer demographic, region and membership details |
 | `Products` | 250 product, category, brand, pricing and supplier details |
 | `Stores` | 120 store, location, region and target information |
 | `Employees` | 300 employee, department, designation and performance information |
@@ -73,7 +73,23 @@ The project uses the provided **TrendKart Fashion Enterprise Dataset** in Excel 
 
 The sales transaction data covers **April 2024 to March 2025**.
 
+---
+
+## Dashboard
+
+The TrendKart dashboard converts the business problem into focused analytical questions. Each visualization is designed to identify where the October-to-November sales decline occurred.
+
 ![TrendKart Dashboard](Dashboard/Dashboard_Trendkart.png)
+
+### How the dashboard addresses the business problem
+
+| Business Question | Dashboard Solution | Business Use |
+|---|---|---|
+| **How did sales and profit change over time?** | Monthly Sales & Profit line chart | Identifies the October peak and November decline |
+| **Which categories drove the sales decline?** | October vs November category comparison | Identifies categories with significant sales reductions |
+| **Which products lost the most sales?** | Top 10 products ranked by sales decline | Identifies products requiring investigation |
+| **Which channels lost sales?** | October vs November channel comparison | Identifies the channel contributing most to the decline |
+| **Which regions lost sales?** | October vs November regional comparison | Identifies regions requiring further investigation |
 
 ---
 
@@ -95,8 +111,12 @@ The project was developed using **Microsoft Excel** and the following techniques
 - Slicers
 - KPI cards
 - Aggregation of Sales Amount and Profit
-- Category, product, channel and regional analysis
 - Monthly trend analysis
+- October vs November comparison
+- Category analysis
+- Product decline analysis
+- Sales-channel analysis
+- Regional analysis
 - Interactive dashboard design
 
 ---
@@ -105,7 +125,7 @@ The project was developed using **Microsoft Excel** and the following techniques
 
 Before building the dashboard, the dataset was profiled to identify data-quality problems.
 
-### Cleaning performed
+### Cleaning Performed
 
 1. **Duplicate invoice numbers**
    - 5 duplicate invoice numbers were identified.
@@ -140,9 +160,7 @@ Before building the dashboard, the dataset was profiled to identify data-quality
 11. **Return Status formatting**
     - 4 Return Status spelling/format issues were identified.
 
-### Master-data cleaning
-
-Additional issues were identified in the supporting tables:
+### Master-data Cleaning
 
 **Customers**
 - 5 duplicate phone numbers
@@ -166,13 +184,9 @@ Additional issues were identified in the supporting tables:
 
 These issues were reviewed and standardized so that the final analysis could be performed consistently.
 
-After cleaning and validation, the transaction and supporting tables were used as the basis for the dashboard analysis.
-
 ---
 
 ## KPIs / Features Explained
-
-The dashboard highlights the following major KPIs:
 
 ### Total Sales
 
@@ -202,7 +216,7 @@ Represents the average sales value per transaction.
 
 **Approximately 19.52%**
 
-Represents the overall profit generated as a percentage of total sales.
+Represents total profit as a percentage of total sales.
 
 ### Dashboard Filters
 
@@ -212,61 +226,45 @@ The dashboard provides interactive slicers for:
 - Product
 - Sales Channel
 
-These filters allow users to dynamically explore the dashboard based on different business segments.
+These filters allow users to explore the dashboard based on different business segments.
 
 ---
 
 ## Dashboard Features
 
-The TrendKart dashboard includes the following visualizations:
+### How did sales and profit change over time?
 
-### Monthly Sales & Profit Trend
+A **line chart** compares monthly Sales Amount and Profit across the transaction period.
 
-A line chart compares monthly Sales Amount and Profit across the transaction period.
+The chart highlights the strong October 2024 performance and the sharp November 2024 decline.
 
-This helps identify changes in sales and profitability over time.
+### Which categories drove the sales decline?
 
-### Sales & Profit by Category
+An **October vs November clustered column chart** compares Sales Amount by product category.
 
-A category-level comparison shows how different fashion categories contribute to sales and profit.
+This identifies categories with significant sales reductions and helps prioritize inventory and promotional review.
 
-Major categories include:
+### Which products lost the most sales?
 
-- Women Sarees
-- Handbags
-- Watches
-- Jewellery
-- Women Dresses
-- Footwear
-- Men Ethnic
-- Women Jeans
-- Women Kurtis
-- Winter Wear
-- Sportswear
-- Accessories
-- Other fashion categories
+A **horizontal bar chart** ranks the top 10 products by their October-to-November Sales Decline.
 
-### Top 10 Products
+**Sales Decline = October Sales − November Sales**
 
-A ranked chart highlights the products generating the highest sales amounts.
+Only products with an actual sales decline are considered.
 
-This helps management identify products that contribute significantly to revenue and may require stronger inventory planning and promotional attention.
+This identifies products with the largest sales losses and supports targeted recovery actions.
 
-### Sales by Channel
+### Which channels lost sales?
 
-A comparison of **Offline and Online** sales channels shows where customers generate the most revenue.
+A **clustered column chart** compares October and November Sales Amount for the Offline and Online channels.
 
-Offline sales are the dominant channel, while Online sales provide an important secondary revenue stream.
+This identifies the channel contributing most to the decline and supports channel-specific recovery strategies.
 
-### Sales by Region
+### Which regions lost sales?
 
-The dashboard compares performance across:
+A **clustered column chart** compares October and November Sales Amount across TrendKart's regions.
 
-- South Zone 1
-- South Zone 2
-- South Zone 3
-
-This allows management to identify which regions are generating the highest revenue and profit.
+This helps identify regions with significant sales reductions and areas requiring further store-level investigation.
 
 ---
 
@@ -274,62 +272,49 @@ This allows management to identify which regions are generating the highest reve
 
 Based on the cleaned transaction data and dashboard analysis:
 
-### 1. Strong overall revenue generation
+### 1. November sales declined significantly after the October peak
 
-TrendKart generated approximately **₹92.27 lakh in sales** and **₹18.01 lakh in profit** from **3,000 transactions**.
+October 2024 generated approximately **₹15.19 lakh in sales**, while November generated approximately **₹10.54 lakh**, representing a **30.6% decline**.
 
-The overall profit margin is approximately **19.52%**, indicating a healthy contribution from the analyzed sales.
+### 2. The decline was primarily a transaction-volume problem
 
-### 2. Offline is the dominant sales channel
+Orders fell from **512 to 351**, a **31.4% decrease**.
 
-Offline sales generated approximately **₹60.49 lakh**, while Online sales generated approximately **₹31.78 lakh**.
+Quantity sold also declined from **1,046 to 712**, a **31.9% decrease**.
 
-Offline therefore contributes around **65.6% of total sales**, making physical retail the primary revenue channel.
+However, average order value increased slightly from approximately **₹2,967 to ₹3,004**.
 
-However, Online contributes approximately **34.4%**, showing that digital sales already represent a significant part of the business.
+This indicates that TrendKart's main issue was **fewer transactions rather than lower spending per order**.
 
-### 3. Women Sarees is the highest-sales category
+### 3. Offline was the largest channel contributor to the decline
 
-**Women Sarees** generated approximately **₹11.03 lakh**, making it the highest-sales category in the transaction data.
+Offline sales fell by approximately **₹3.47 lakh (34.1%)**, while Online sales fell by approximately **₹1.18 lakh (23.5%)**.
 
-Other major categories include:
+This makes Offline the most important channel to investigate for recovery.
 
-- Handbags — approximately ₹9.94 lakh
-- Watches — approximately ₹9.38 lakh
-- Jewellery — approximately ₹8.51 lakh
-- Women Dresses — approximately ₹6.48 lakh
+### 4. Several major categories experienced substantial declines
 
-These categories represent important revenue drivers for TrendKart.
+Handbags declined by approximately **46.9%**, Women Sarees by **43.7%**, and Footwear by **42.9%** from October to November.
 
-### 4. Handbags has the highest profit among the major categories
+These categories should be prioritized for further investigation.
 
-Handbags generated approximately **₹2.14 lakh in profit**, which is higher than the profit generated by Women Sarees.
+### 5. Regional performance also weakened
 
-This shows that the category generating the highest sales does not necessarily generate the highest profit.
+South Zone 1 declined by approximately **32.7%** and recorded the largest absolute regional sales decline.
 
-Management should therefore evaluate both **sales value and profitability** when deciding which categories to prioritize.
+South Zone 2 declined by approximately **38.0%**.
 
-### 5. South Zone 1 is the strongest region
+This suggests that store-level investigation in these regions could help identify the source of lost sales.
 
-South Zone 1 generated approximately **₹44.63 lakh in sales** and **₹8.65 lakh in profit**.
+### 6. Profit declined faster than sales
 
-South Zone 2 generated approximately **₹25.55 lakh in sales**, while South Zone 3 generated approximately **₹22.09 lakh**.
+Profit decreased from approximately **₹3.01 lakh in October to ₹1.95 lakh in November**, a **35.4% decline**.
 
-South Zone 1 therefore contributes nearly half of the total sales and is the strongest regional market.
+This reinforces the need to recover sales volume while protecting profitability.
 
-### 6. October 2024 was the strongest sales month
+### 7. Overall business performance remains substantial
 
-October 2024 generated approximately **₹15.19 lakh in sales** and **₹3.01 lakh in profit**, making it the strongest month in the transaction period.
-
-This suggests that seasonal demand, promotional activity or customer purchasing patterns may have contributed to the increase.
-
-### 7. Product concentration should be monitored
-
-The transaction data shows a small group of products contributing substantially to overall sales.
-
-For example, **GRT Jewellers Sling Bag Olive** generated approximately **₹4.83 lakh in sales** and **₹1.15 lakh in profit**, making it a particularly strong product in the analyzed data.
-
-High-performing products should be monitored carefully for stock availability and demand continuity.
+Across the full analyzed dataset, TrendKart generated approximately **₹92.27 lakh in sales** and **₹18.01 lakh in profit** from **3,000 transactions**, with an overall profit margin of approximately **19.52%**.
 
 ---
 
@@ -337,24 +322,24 @@ High-performing products should be monitored carefully for stock availability an
 
 ### Recommendations
 
-Based on the data-backed business problem above, TrendKart should:
+Based on the business problem and dashboard analysis, TrendKart should:
 
-- Focus on **order/customer volume**, because the 31.4% fall in orders was the main reason for the November sales decline.
-- Use **post-purchase campaigns** to convert October customers into repeat buyers.
-- Strengthen the **Offline channel**, which accounted for the largest absolute sales decline.
-- Prioritize **Handbags, Women Sarees, Watches and Footwear** for stock checks and targeted promotions.
-- Investigate store-level performance in **South Zone 1 and South Zone 2**.
-- Introduce **weekend-specific campaigns** because weekend sales dropped 42.7%.
-- Monitor payment-channel changes, particularly the large decline in **Credit Card and EMI** transactions.
-- Compare each month against both the previous month and the **historical average**, because October was an unusually strong sales peak.
+- Focus on **recovering order/customer volume**, since the fall in orders was the main driver of the November decline.
+- Use **post-purchase campaigns** to encourage October customers to return.
+- Strengthen the **Offline channel**, which recorded the largest absolute sales decline.
+- Prioritize **Handbags, Women Sarees and Footwear** for inventory checks and targeted promotions.
+- Investigate **South Zone 1 and South Zone 2** at store level.
+- Identify products with the **largest October-to-November sales decline** and review their availability and demand.
+- Use targeted campaigns to recover weaker periods without unnecessarily reducing average order value.
+- Compare monthly performance against both the previous month and the longer-term trend so that a strong seasonal peak is not treated as the normal baseline.
 
 ### Conclusion
 
-The TrendKart analysis shows that the November 2024 sales decline was primarily a **volume problem**. Sales fell 30.6% because the number of orders dropped 31.4%, while average order value remained broadly stable.
+The TrendKart analysis shows that the November 2024 sales decline was primarily a **volume problem**. Sales fell by 30.6% because order volume declined by 31.4%, while average order value remained broadly stable.
 
-The recommended response is therefore to recover customer traffic and repeat purchases, strengthen the offline channel, target the categories and regions with the largest declines, and use weekend promotions to rebuild transaction volume.
+The dashboard therefore focuses on identifying **where the lost sales came from** across categories, products, channels and regions and converts those findings into targeted business actions.
 
-This converts the dashboard from a reporting tool into a decision-making tool by directly connecting the observed sales decline to measurable business actions.
+The recommended approach is to **recover transaction volume, strengthen the affected sales channels, target products and categories with significant declines, and investigate underperforming regions while maintaining profitability**.
 
 ---
 
@@ -368,9 +353,11 @@ This project demonstrates practical skills in:
 - PivotTables and PivotCharts
 - KPI development
 - Interactive dashboard creation
-- Business insight generation
-- Sales and profitability analysis
+- Monthly trend analysis
+- Sales decline analysis
+- Product and category analysis
 - Regional and channel analysis
+- Business insight generation
 - Data-driven recommendations
 
-The final output is an interactive **TrendKart Fashion Sales Dashboard** designed to convert raw retail data into clear and actionable business insights.
+The final output is an interactive **TrendKart Fashion Sales Dashboard** designed to convert raw retail transaction data into clear, actionable business insights and support data-driven decision-making.
