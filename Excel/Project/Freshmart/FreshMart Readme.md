@@ -1,6 +1,6 @@
 # FreshMart Sales Analysis Dashboard
 
-## 1. Business Problem
+## Business Problem
 
 ### Why did FreshMart sales fall sharply in January 2026 compared with December 2025?
 
@@ -48,7 +48,7 @@ FreshMart should focus on **recovering order volume first**, while protecting pr
 
 **Business objective:** Restore transaction volume and improve sales without relying only on deeper discounts, while maintaining FreshMart's profitability.
 
-## 2. Dataset / Source Details
+## Dataset / Source Details
 
 The project uses the provided **FreshMart sales transaction dataset** in
 Excel format.
@@ -95,7 +95,7 @@ time and day type.
 
 ------------------------------------------------------------------------
 
-## 3. Tools / Excel Techniques Used
+## Tools / Excel Techniques Used
 
 The project was developed using **Microsoft Excel** and the following
 techniques:
@@ -117,7 +117,7 @@ techniques:
 
 ------------------------------------------------------------------------
 
-## 4. Data Cleaning / Analysis Explanation
+## Data Cleaning / Analysis Explanation
 
 Several data-quality issues were identified and addressed before
 creating the dashboard.
@@ -159,7 +159,7 @@ the basis for the dashboard analysis.
 
 ------------------------------------------------------------------------
 
-## 5. KPIs / Features Explained
+## KPIs / Features Explained
 
 The dashboard contains four major KPI cards:
 
@@ -202,7 +202,7 @@ business perspectives.
 
 ------------------------------------------------------------------------
 
-## 6. Dashboard Features
+## Dashboard Features
 
 The dashboard includes the following visualizations:
 
@@ -226,9 +226,11 @@ amounts.
 A comparison of **In-Store, Mobile App and Online** sales channels shows
 where customers generate the most revenue.
 
+![FreshMart Dashboard](Dashboard/Dashboard_Freshmart.png)
+
 ------------------------------------------------------------------------
 
-## 7. Key Insights
+## Key Insights
 
 Based on the cleaned transaction data and dashboard analysis:
 
@@ -291,7 +293,7 @@ customer behavior may influence monthly performance.
 
 ------------------------------------------------------------------------
 
-## 8. Recommendations / Conclusion
+## Recommendations / Conclusion
 
 ### Recommendations
 
@@ -312,13 +314,6 @@ The FreshMart analysis shows that the major January 2026 problem was **not simpl
 The recommended strategy is therefore to rebuild customer traffic and transaction frequency, strengthen digital and weekend campaigns, protect availability of high-demand categories, and investigate severely affected regions such as West.
 
 This approach directly addresses the business problem identified from the transaction data rather than treating data cleaning as the problem itself.
-
-## 9. Dashboard Preview
-
-The final Excel dashboard provides an interactive view of FreshMart's
-performance using KPI cards, slicers and charts.
-
-![FreshMart Dashboard](Dashboard/Dashboard_Freshmart.png)
 
 
 ------------------------------------------------------------------------
