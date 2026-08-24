@@ -55,36 +55,34 @@ Excel format.
 
 ### Dataset structure
 
-  -----------------------------------------------------------------------
-  Sheet                               Purpose
-  ----------------------------------- -----------------------------------
-  `Sales_Transactions`                Cleaned transaction-level data used
+ 
+  `Sales_Transactions` -                Cleaned transaction-level data used
                                       for analysis
 
-  `Sales_Trans`                       Original/working transaction data
+  `Sales_Trans` -                      Original/working transaction data
 
-  `Sales_Trans_1`                     Extended transaction data used
+  `Sales_Trans_1` -                    Extended transaction data used
                                       during the analysis
 
-  `Store`                             Store information such as region,
+  `Store` -                            Store information such as region,
                                       city, type, target and status
 
-  `Employee`                          Employee details and store
+  `Employee` -                         Employee details and store
                                       assignment
 
-  `Customer`                          Customer demographic and membership
+  `Customer` -                         Customer demographic and membership
                                       information
 
-  `Product`                           Product, category, brand, price and
+  `Product` -                          Product, category, brand, price and
                                       supplier information
 
-  `Pivot_KPIs`                        Pivot-based KPI calculations and
+  `Pivot_KPIs` -                       Pivot-based KPI calculations and
                                       summaries
 
-  `Data_Profiling`                    Data-quality issues identified and
+  `Data_Profiling` -                   Data-quality issues identified and
                                       cleaning actions
 
-  `Dashboard`                         Final interactive dashboard
+  `Dashboard`                         
   -----------------------------------------------------------------------
 
 The cleaned `Sales_Transactions` sheet contains **2,500 sales
@@ -92,6 +90,8 @@ transactions** and **18 analytical columns**, including transaction
 date, customer, product, store, employee, quantity, pricing, discount,
 sales, cost, profit, payment mode, return status, sales channel, order
 time and day type.
+
+![FreshMart Dashboard](Dashboard/Dashboard_Freshmart.png)
 
 ------------------------------------------------------------------------
 
@@ -226,7 +226,6 @@ amounts.
 A comparison of **In-Store, Mobile App and Online** sales channels shows
 where customers generate the most revenue.
 
-![FreshMart Dashboard](Dashboard/Dashboard_Freshmart.png)
 
 ------------------------------------------------------------------------
 
