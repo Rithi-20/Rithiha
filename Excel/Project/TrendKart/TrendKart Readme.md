@@ -1,6 +1,6 @@
 # TrendKart Fashion Sales Analysis Dashboard
 
-## 1. Business Problem
+## Business Problem
 
 ### Why did TrendKart sales fall sharply in November 2024 compared with October 2024?
 
@@ -54,335 +54,286 @@ TrendKart should focus on **recovering customer/order traffic after the October 
 
 **Business objective:** Recover lost transaction volume and improve post-peak customer retention while maintaining the average order value and profitability.
 
-## 2. Dataset / Source Details
+---
 
-The project uses the provided **TrendKart Fashion Enterprise Dataset**
-in Excel format.
+## Dataset / Source Details
 
-### Dataset overview
+The project uses the provided **TrendKart Fashion Enterprise Dataset** in Excel format.
 
-  ------------------------------------------------------------------------
-  Data Area                                  Records Purpose
-  --------------------- ---------------------------- ---------------------
-  Sales Transactions                           3,000 Transaction-level
-                                                     sales data used for
-                                                     analysis
+### Dataset structure
 
-  Customers                                      850 Customer
-                                                     demographics, region
-                                                     and membership
-                                                     details
-
-  Products                                       250 Product, category,
-                                                     brand, pricing and
-                                                     supplier details
-
-  Stores                                         120 Store, location,
-                                                     region and target
-                                                     information
-
-  Employees                                      300 Employee, department,
-                                                     designation and
-                                                     performance
-                                                     information
-
-  Suppliers                                       90 Supplier details,
-                                                     lead time and
-                                                     supplier ratings
-  ------------------------------------------------------------------------
-
-### Main workbook sheets
-
-  -----------------------------------------------------------------------
-  Sheet                               Purpose
-  ----------------------------------- -----------------------------------
-  `Sales_Transactions`                Cleaned transaction-level dataset
-
-  `Sales`                             Combined sales analysis dataset
-                                      with related customer, product,
-                                      store and employee attributes
-
-  `Customers` / `Customer`            Customer master data
-
-  `Products` / `Product`              Product master data
-
-  `Stores` / `Store`                  Store master data
-
-  `Employees` / `Employee`            Employee master data
-
-  `Suppliers` / `Supplier`            Supplier master data
-
-  `Pivot_Analysis`                    Pivot-based calculations used for
-                                      dashboard analysis
-
-  `Dashboard`                         Dashboard worksheet
-
-  `Data_Profiling`                    Data-quality issues identified
-                                      during profiling
-  -----------------------------------------------------------------------
-
-### Transaction period
+| Sheet / Data | Details |
+|---|---|
+| `Sales Transactions` | 3,000 transaction-level sales records used for analysis |
+| `Customers` | 850 customer demographics, region and membership details |
+| `Products` | 250 product, category, brand, pricing and supplier details |
+| `Stores` | 120 store, location, region and target information |
+| `Employees` | 300 employee, department, designation and performance information |
+| `Suppliers` | 90 supplier details, lead time and supplier ratings |
 
 The sales transaction data covers **April 2024 to March 2025**.
 
-------------------------------------------------------------------------
+![TrendKart Dashboard](Dashboard/Dashboard_Trendkart.png)
 
-## 3. Tools / Excel Techniques Used
+---
 
-The project was developed using **Microsoft Excel** with the following
-techniques:
+## Tools / Excel Techniques Used
 
--   Excel Tables
--   Data profiling
--   Data cleaning and standardization
--   Duplicate identification
--   Missing-value identification
--   Date-format standardization
--   Text and numeric data-type correction
--   Find & Replace
--   Conditional Formatting
--   PivotTables
--   PivotCharts
--   Slicers
--   KPI cards
--   Aggregation of Sales Amount and Profit
--   Category, product, channel and regional analysis
--   Monthly trend analysis
--   Interactive dashboard design
+The project was developed using **Microsoft Excel** and the following techniques:
 
-------------------------------------------------------------------------
+- Excel Tables
+- Data profiling
+- Data cleaning and standardization
+- Duplicate identification
+- Missing-value identification
+- Date-format standardization
+- Text and numeric data-type correction
+- Find & Replace
+- Conditional Formatting
+- PivotTables
+- PivotCharts
+- Slicers
+- KPI cards
+- Aggregation of Sales Amount and Profit
+- Category, product, channel and regional analysis
+- Monthly trend analysis
+- Interactive dashboard design
 
-## 4. Data Cleaning / Analysis Explanation
+---
 
-Before building the dashboard, the dataset was profiled to identify
-data-quality problems.
+## Data Cleaning / Analysis Explanation
 
-### Sales transaction issues identified
+Before building the dashboard, the dataset was profiled to identify data-quality problems.
 
-The profiling sheet identified issues including:
+### Cleaning performed
 
--   **5 duplicate invoice numbers**
--   **6 blank Customer IDs**
--   **5 blank Product IDs**
--   **5 blank Employee IDs**
--   **6 mixed date-format records**
--   **5 Quantity values stored as text**
--   **4 Payment Mode records containing extra spaces**
--   **4 negative-profit records**
--   **5 records with Quantity = 0**
--   **5 mixed Payment Mode casing issues**
--   **4 Return Status spelling/format issues**
+1. **Duplicate invoice numbers**
+   - 5 duplicate invoice numbers were identified.
 
-### Master-data issues identified
+2. **Missing Customer IDs**
+   - 6 blank Customer IDs were identified.
 
-Additional issues were found in the supporting tables:
+3. **Missing Product IDs**
+   - 5 blank Product IDs were identified.
 
-**Customers** - 5 duplicate phone numbers - 5 invalid email records - 5
-inconsistent gender values - 5 inconsistent membership values - 5 names
-with leading/trailing spaces
+4. **Missing Employee IDs**
+   - 5 blank Employee IDs were identified.
 
-**Products** - 4 duplicate product names - 4 incorrect category
-spellings - 4 blank brand values
+5. **Mixed date formats**
+   - 6 mixed date-format records were identified and standardized.
 
-**Stores** - 3 missing manager names - 2 status typos
+6. **Quantity stored as text**
+   - 5 Quantity values were stored as text and required correction.
 
-**Employees** - 2 employee names with leading/trailing spaces - 2
-employment-status typos
+7. **Payment Mode spacing**
+   - 4 Payment Mode records contained extra spaces.
 
-These issues were reviewed and standardized so that the final analysis
-could be performed consistently.
+8. **Negative-profit records**
+   - 4 negative-profit records were identified for review.
 
-------------------------------------------------------------------------
+9. **Zero quantity records**
+   - 5 records had Quantity = 0.
 
-## 5. KPIs / Features Explained
+10. **Payment Mode casing**
+    - 5 mixed Payment Mode casing issues were identified.
 
-The dashboard highlights two primary business KPIs:
+11. **Return Status formatting**
+    - 4 Return Status spelling/format issues were identified.
+
+### Master-data cleaning
+
+Additional issues were identified in the supporting tables:
+
+**Customers**
+- 5 duplicate phone numbers
+- 5 invalid email records
+- 5 inconsistent gender values
+- 5 inconsistent membership values
+- 5 names with leading/trailing spaces
+
+**Products**
+- 4 duplicate product names
+- 4 incorrect category spellings
+- 4 blank brand values
+
+**Stores**
+- 3 missing manager names
+- 2 status typos
+
+**Employees**
+- 2 employee names with leading/trailing spaces
+- 2 employment-status typos
+
+These issues were reviewed and standardized so that the final analysis could be performed consistently.
+
+After cleaning and validation, the transaction and supporting tables were used as the basis for the dashboard analysis.
+
+---
+
+## KPIs / Features Explained
+
+The dashboard highlights the following major KPIs:
 
 ### Total Sales
 
 **₹92,27,179.96**
 
-This represents the total sales value generated from the 3,000 analyzed
-transactions.
+Represents the total sales value generated from the **3,000 analyzed transactions**.
 
 ### Total Profit
 
 **₹18,01,437.12**
 
-This represents the total profit generated from the analyzed
-transactions.
+Represents the total profit generated from the analyzed transactions.
 
-### Additional analytical metrics
+### Total Transactions
 
-From the transaction dataset:
+**3,000**
 
--   **Total transactions:** 3,000
--   **Average sales per transaction:** approximately ₹3,075.73
--   **Overall profit margin:** approximately 19.52%
+Represents the total number of transaction records analyzed.
+
+### Average Sales per Transaction
+
+**Approximately ₹3,075.73**
+
+Represents the average sales value per transaction.
+
+### Overall Profit Margin
+
+**Approximately 19.52%**
+
+Represents the overall profit generated as a percentage of total sales.
 
 ### Dashboard Filters
 
 The dashboard provides interactive slicers for:
 
--   Store Region
--   Product
--   Sales Channel
+- Store Region
+- Product
+- Sales Channel
 
-These filters allow users to dynamically explore the dashboard based on
-different business segments.
+These filters allow users to dynamically explore the dashboard based on different business segments.
 
-------------------------------------------------------------------------
+---
 
-## 6. Dashboard Features
+## Dashboard Features
 
-The TrendKart dashboard contains four major analytical sections.
+The TrendKart dashboard includes the following visualizations:
 
-### 1. Monthly Performance & Profit Trend
+### Monthly Sales & Profit Trend
 
-A line chart compares Sales Amount and Profit across the transaction
-period.
+A line chart compares monthly Sales Amount and Profit across the transaction period.
 
-This helps identify:
+This helps identify changes in sales and profitability over time.
 
--   High-performing months
--   Low-performing periods
--   Changes in revenue and profitability
--   Potential seasonal patterns
+### Sales & Profit by Category
 
-### 2. Sales & Profit by Category
-
-A category-level chart compares sales and profit across fashion
-categories.
+A category-level comparison shows how different fashion categories contribute to sales and profit.
 
 Major categories include:
 
--   Women Sarees
--   Handbags
--   Watches
--   Jewellery
--   Women Dresses
--   Footwear
--   Men Ethnic
--   Women Jeans
--   Women Kurtis
--   Winter Wear
--   Sportswear
--   Accessories
--   And other fashion categories
+- Women Sarees
+- Handbags
+- Watches
+- Jewellery
+- Women Dresses
+- Footwear
+- Men Ethnic
+- Women Jeans
+- Women Kurtis
+- Winter Wear
+- Sportswear
+- Accessories
+- Other fashion categories
 
-### 3. Top 10 Products
+### Top 10 Products
 
-The dashboard ranks the highest-performing products based on sales
-amount.
+A ranked chart highlights the products generating the highest sales amounts.
 
-This helps management identify products that contribute significantly to
-revenue and may require stronger inventory planning and promotional
-attention.
+This helps management identify products that contribute significantly to revenue and may require stronger inventory planning and promotional attention.
 
-### 4. Sales by Channel
+### Sales by Channel
 
-The dashboard compares:
+A comparison of **Offline and Online** sales channels shows where customers generate the most revenue.
 
--   Offline
--   Online
+Offline sales are the dominant channel, while Online sales provide an important secondary revenue stream.
 
-Offline sales are the dominant channel, while Online sales provide an
-important secondary revenue stream.
-
-### 5. Sales by Region
+### Sales by Region
 
 The dashboard compares performance across:
 
--   South Zone 1
--   South Zone 2
--   South Zone 3
+- South Zone 1
+- South Zone 2
+- South Zone 3
 
-This allows management to identify which regions are generating the
-highest revenue and profit.
+This allows management to identify which regions are generating the highest revenue and profit.
 
-------------------------------------------------------------------------
+---
 
-## 7. Key Insights
+## Key Insights
+
+Based on the cleaned transaction data and dashboard analysis:
 
 ### 1. Strong overall revenue generation
 
-TrendKart generated approximately **₹92.27 lakh in sales** and **₹18.01
-lakh in profit** from 3,000 transactions.
+TrendKart generated approximately **₹92.27 lakh in sales** and **₹18.01 lakh in profit** from **3,000 transactions**.
 
-The overall profit margin is approximately **19.52%**, indicating a
-healthy contribution from the analyzed sales.
+The overall profit margin is approximately **19.52%**, indicating a healthy contribution from the analyzed sales.
 
 ### 2. Offline is the dominant sales channel
 
-Offline sales generated approximately **₹60.49 lakh**, while Online
-sales generated approximately **₹31.78 lakh**.
+Offline sales generated approximately **₹60.49 lakh**, while Online sales generated approximately **₹31.78 lakh**.
 
-Offline therefore contributes around **65.6% of total sales**, making
-physical retail the primary revenue channel.
+Offline therefore contributes around **65.6% of total sales**, making physical retail the primary revenue channel.
 
-However, Online contributes approximately **34.4%**, showing that
-digital sales already represent a significant part of the business.
+However, Online contributes approximately **34.4%**, showing that digital sales already represent a significant part of the business.
 
 ### 3. Women Sarees is the highest-sales category
 
-**Women Sarees** generated approximately **₹11.03 lakh**, making it the
-highest-sales category in the transaction data.
+**Women Sarees** generated approximately **₹11.03 lakh**, making it the highest-sales category in the transaction data.
 
 Other major categories include:
 
--   Handbags --- approximately ₹9.94 lakh
--   Watches --- approximately ₹9.38 lakh
--   Jewellery --- approximately ₹8.51 lakh
--   Women Dresses --- approximately ₹6.48 lakh
+- Handbags — approximately ₹9.94 lakh
+- Watches — approximately ₹9.38 lakh
+- Jewellery — approximately ₹8.51 lakh
+- Women Dresses — approximately ₹6.48 lakh
 
 These categories represent important revenue drivers for TrendKart.
 
 ### 4. Handbags has the highest profit among the major categories
 
-Handbags generated approximately **₹2.14 lakh in profit**, which is
-higher than the profit generated by Women Sarees.
+Handbags generated approximately **₹2.14 lakh in profit**, which is higher than the profit generated by Women Sarees.
 
-This shows that the category generating the highest sales does not
-necessarily generate the highest profit.
+This shows that the category generating the highest sales does not necessarily generate the highest profit.
 
-Management should therefore evaluate both **sales value and
-profitability** when deciding which categories to prioritize.
+Management should therefore evaluate both **sales value and profitability** when deciding which categories to prioritize.
 
 ### 5. South Zone 1 is the strongest region
 
-South Zone 1 generated approximately **₹44.63 lakh in sales** and
-**₹8.65 lakh in profit**.
+South Zone 1 generated approximately **₹44.63 lakh in sales** and **₹8.65 lakh in profit**.
 
-South Zone 2 generated approximately **₹25.55 lakh in sales**, while
-South Zone 3 generated approximately **₹22.09 lakh**.
+South Zone 2 generated approximately **₹25.55 lakh in sales**, while South Zone 3 generated approximately **₹22.09 lakh**.
 
-South Zone 1 therefore contributes nearly half of the total sales and is
-the strongest regional market.
+South Zone 1 therefore contributes nearly half of the total sales and is the strongest regional market.
 
 ### 6. October 2024 was the strongest sales month
 
-October 2024 generated approximately **₹15.19 lakh in sales** and
-**₹3.01 lakh in profit**, making it the strongest month in the
-transaction period.
+October 2024 generated approximately **₹15.19 lakh in sales** and **₹3.01 lakh in profit**, making it the strongest month in the transaction period.
 
-This suggests that seasonal demand, promotional activity or customer
-purchasing patterns may have contributed to the increase.
+This suggests that seasonal demand, promotional activity or customer purchasing patterns may have contributed to the increase.
 
 ### 7. Product concentration should be monitored
 
-The transaction data shows a small group of products contributing
-substantially to overall sales.
+The transaction data shows a small group of products contributing substantially to overall sales.
 
-For example, **GRT Jewellers Sling Bag Olive** generated approximately
-**₹4.83 lakh in sales** and **₹1.15 lakh in profit**, making it a
-particularly strong product in the analyzed data.
+For example, **GRT Jewellers Sling Bag Olive** generated approximately **₹4.83 lakh in sales** and **₹1.15 lakh in profit**, making it a particularly strong product in the analyzed data.
 
-High-performing products should be monitored carefully for stock
-availability and demand continuity.
+High-performing products should be monitored carefully for stock availability and demand continuity.
 
-------------------------------------------------------------------------
+---
 
-## 8. Recommendations / Conclusion
+## Recommendations / Conclusion
 
 ### Recommendations
 
@@ -405,30 +356,21 @@ The recommended response is therefore to recover customer traffic and repeat pur
 
 This converts the dashboard from a reporting tool into a decision-making tool by directly connecting the observed sales decline to measurable business actions.
 
-## 9. Dashboard Preview
+---
 
-The final TrendKart dashboard provides an interactive view of sales and
-profit performance using KPI cards, slicers and multiple charts.
-
-![TrendKart Dashboard](Dashboard/Dashboard_Trendkart.png)
-
-------------------------------------------------------------------------
-
-## 10. Project Outcome
+## Project Outcome
 
 This project demonstrates practical skills in:
 
--   Excel data cleaning
--   Data profiling
--   Data analysis
--   PivotTables and PivotCharts
--   KPI development
--   Interactive dashboard creation
--   Business insight generation
--   Sales and profitability analysis
--   Regional and channel analysis
--   Data-driven recommendations
+- Excel data cleaning
+- Data profiling
+- Data analysis
+- PivotTables and PivotCharts
+- KPI development
+- Interactive dashboard creation
+- Business insight generation
+- Sales and profitability analysis
+- Regional and channel analysis
+- Data-driven recommendations
 
-The final output is an interactive **TrendKart Fashion Sales Dashboard**
-designed to convert raw retail data into clear and actionable business
-insights.
+The final output is an interactive **TrendKart Fashion Sales Dashboard** designed to convert raw retail data into clear and actionable business insights.
