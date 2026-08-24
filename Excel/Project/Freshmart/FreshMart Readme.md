@@ -2,88 +2,70 @@
 
 ## Business Problem
 
-### Why did FreshMart sales fall sharply in January 2026 compared with December 2025?
+FreshMart generates sales through multiple products, categories and
+sales channels, but management needs a clear view of **what is driving
+sales and profitability and where business performance can be
+improved**.
 
-FreshMart recorded **₹3.05 lakh in sales in December 2025**, but sales fell to only **₹0.92 lakh in January 2026** — a **69.7% month-on-month decline**.
+The key business problem is:
 
-The dashboard shows that this was not mainly caused by customers spending much less per order. The **average order value decreased from ₹1,160 to ₹1,075 (7.3%)**, while the number of orders dropped from **263 to 86 (67.3%)**. Quantity sold also fell from **1,066 to 333 (68.8%)**.
+> **How can FreshMart improve profitable growth by identifying the key
+> drivers of its sales and profitability across products, categories,
+> sales channels and time?**
 
-The data indicates that the main business problem was therefore a **sharp reduction in customer/order volume**, rather than a major collapse in basket value.
+The analysis focuses on understanding overall performance, monthly
+trends, category profitability, high-performing products and channel
+contribution.
 
-### What contributed to the decline?
+### Business Objective
 
-- **In-Store sales** fell by approximately **₹1.45 lakh (67.8%)**, the largest absolute channel decline.
-- **Online sales** fell by **75.6%**, while **Mobile App sales** fell by **71.0%**.
-- **Beverages** declined by **78.0%**, **Bakery by 74.8%**, and **Rice by 81.5%**.
-- **Weekend sales** fell by **74.2%**, a larger decline than weekday sales at **63.0%**.
-- **West region sales** fell by **87.5%**, making it the most severely affected region.
-- Profit also fell from **₹82,160 to ₹22,606**, a decline of **72.5%**.
+Identify the major drivers of FreshMart's sales and profitability and
+provide data-driven recommendations that can help management improve
+profitable growth.
 
-These findings suggest that FreshMart experienced a broad-based reduction in transaction activity across channels, categories and regions.
+### Business Questions
 
-### Solution
+The dashboard is designed to answer the following questions:
 
-FreshMart should focus on **recovering order volume first**, while protecting profitable categories.
+1.  **What are FreshMart's total sales, profit and order performance?**
+2.  **How do FreshMart's sales and profit change over time?**
+3.  **Which categories drive sales and profit?**
+4.  **Which products drive sales and profit?**
+5.  **Which channels drive sales and profit?**
+6.  **How can FreshMart use these insights to improve profitable
+    growth?**
 
-1. **Increase customer traffic and orders**
-   - Run targeted promotions immediately after the December peak.
-   - Use loyalty offers and repeat-purchase campaigns to bring existing customers back in January.
-   - Create weekend-specific promotions because weekend sales experienced the largest decline.
-
-2. **Recover digital sales**
-   - Launch app-only and online-only discounts or bundle offers.
-   - Send personalized offers to customers who purchased frequently in December but did not return in January.
-
-3. **Prioritize high-impact categories**
-   - Promote Beverages, Bakery, Dairy and Snacks because they experienced large absolute sales declines.
-   - Check inventory availability for these categories before assuming the decline is demand-driven.
-
-4. **Target the West region**
-   - Investigate store-level sales in the West region because its sales dropped **87.5%**.
-   - Check whether specific stores, stock availability or local promotions caused the regional decline.
-
-5. **Use December as a benchmark**
-   - Compare January store, product and customer performance against December every year.
-   - Set January recovery targets based on order count as well as sales value.
-
-**Business objective:** Restore transaction volume and improve sales without relying only on deeper discounts, while maintaining FreshMart's profitability.
+------------------------------------------------------------------------
 
 ## Dataset / Source Details
 
 The project uses the provided **FreshMart sales transaction dataset** in
 Excel format.
 
-### Dataset structure
+### Dataset Structure
 
- 
-  `Sales_Transactions` -                Cleaned transaction-level data used
-                                      for analysis
+| Sheet | Purpose |
+|---|---|
+| `Sales_Transactions` | Cleaned transaction-level data used for the final analysis |
+| `Sales_Trans` | Original/working transaction data |
+| `Sales_Trans_1` | Extended transaction data used during analysis |
+| `Store` | Store information including region, city, store type, target and status |
+| `Employee` | Employee information and store assignment |
+| `Customer` | Customer demographic and membership information |
+| `Product` | Product, category, brand, price and supplier information |
+| `Pivot_KPIs` | Pivot-based KPI calculations and summaries |
+| `Data_Profiling` | Data-quality issues and cleaning actions |
+| `Dashboard` | Final interactive Excel dashboard |
 
-  `Sales_Trans` -                      Original/working transaction data
+The cleaned `Sales_Transactions` sheet contains **2,500 transaction
+records and 18 analytical columns**, including transaction date,
+customer, product, store, employee, quantity, pricing, discount, sales,
+cost, profit, payment mode, return status, sales channel, order time and
+day type.
 
-  `Sales_Trans_1` -                    Extended transaction data used
-                                      during the analysis
+------------------------------------------------------------------------
 
-  `Store` -                            Store information such as region,
-                                      city, type, target and status
-
-  `Employee` -                         Employee details and store
-                                      assignment
-
-  `Customer` -                         Customer demographic and membership
-                                      information
-
-  `Product` -                          Product, category, brand, price and
-                                      supplier information
-
-  `Pivot_KPIs` -                       Pivot-based KPI calculations and
-                                      summaries
-
-  `Data_Profiling` -                   Data-quality issues identified and
-                                      cleaning actions
-
-  `Dashboard`                         
-  -----------------------------------------------------------------------
+## Dashboard                      
 
 The cleaned `Sales_Transactions` sheet contains **2,500 sales
 transactions** and **18 analytical columns**, including transaction
@@ -101,37 +83,38 @@ The project was developed using **Microsoft Excel** and the following
 techniques:
 
 -   Excel Tables
--   Power Query for data preparation
+-   Data profiling
+-   Power Query
 -   Data type correction and standardization
 -   Duplicate identification
--   Blank/null value identification
--   Find & Replace for standardizing inconsistent values
--   Conditional Formatting for data-quality checks
+-   Missing-value identification
+-   Find & Replace
+-   Conditional Formatting
 -   PivotTables
 -   PivotCharts
--   Slicers for interactive filtering
--   `GETPIVOTDATA` for KPI extraction
+-   Slicers
+-   KPI cards
 -   Aggregation of Sales, Profit and Orders
--   Dashboard layout and KPI cards
--   Trend, category, product and channel analysis
+-   Monthly trend analysis
+-   Category and product analysis
+-   Sales-channel analysis
+-   Interactive dashboard design
 
 ------------------------------------------------------------------------
 
-## Data Cleaning / Analysis Explanation
+## Data Cleaning / Preparation
 
-Several data-quality issues were identified and addressed before
-creating the dashboard.
+Before building the dashboard, the transaction data was profiled to
+identify data-quality issues.
 
-### Cleaning performed
+### Cleaning Performed
 
 1.  **Duplicate invoice numbers**
-    -   Duplicate invoice records were identified.
-    -   The data-profiling sheet records approximately 20 duplicate
-        invoice occurrences for review.
+    -   Approximately 20 duplicate invoice occurrences were identified
+        during profiling for review.
 2.  **Transaction date formatting**
-    -   Different date formats were standardized into a consistent date
-        format.
-    -   Data types were corrected using Excel/Power Query techniques.
+    -   Inconsistent date formats were standardized.
+    -   Date values were converted into a consistent usable date format.
 3.  **Missing Customer IDs**
     -   8 blank Customer ID values were identified.
 4.  **Missing Product IDs**
@@ -141,38 +124,41 @@ creating the dashboard.
 6.  **Missing Employee IDs**
     -   5 blank Employee ID values were identified.
 7.  **Quantity validation**
-    -   6 records were flagged during the profiling process for
-        quantity-related checking.
-8.  **Sales amount formatting**
-    -   Currency symbols/text inconsistencies were removed so that Sales
-        Amount could be treated as a numeric field.
-9.  **Payment mode standardization**
+    -   6 records were flagged for quantity-related checking.
+8.  **Sales Amount formatting**
+    -   Currency/text inconsistencies were removed so that Sales Amount
+        could be treated as a numeric field.
+9.  **Payment Mode standardization**
     -   Inconsistent payment-mode values were standardized using Find &
         Replace.
-10. **Order time**
+10. **Order Time formatting**
+    -   Order Time was converted from text into a usable time/number
+        format.
 
--   Order Time was originally stored as text and was converted into a
-    usable time/number format.
+After cleaning and validation, the `Sales_Transactions` sheet was used
+as the primary source for the dashboard analysis.
 
-After cleaning and validation, the cleaned transaction table was used as
-the basis for the dashboard analysis.
+> **Note:** Missing categorical values such as Region or Product
+> Category should be handled using an explicit value such as `Unknown`
+> rather than assigning the mode, unless there is a documented business
+> reason to infer the missing value.
 
 ------------------------------------------------------------------------
 
 ## KPIs / Features Explained
 
-The dashboard contains four major KPI cards:
+The dashboard contains four primary KPI cards.
 
 ### Total Sales
 
-**₹28,94,662.90**
+**₹28,94,663**
 
-Represents the total sales amount generated from the analyzed
+Represents the total sales amount generated from the 2,500 analyzed
 transactions.
 
 ### Total Profit
 
-**₹7,37,358.89**
+**₹7,37,359**
 
 Represents the total profit generated after accounting for the recorded
 cost amount.
@@ -181,51 +167,69 @@ cost amount.
 
 **2,500**
 
-Represents the total number of transaction/invoice records analyzed.
+Represents the number of transaction/invoice records analyzed.
 
 ### Average Sales
 
-**₹1,157.87**
+**₹1,158**
 
 Represents the average sales value per transaction.
 
 ### Dashboard Filters
 
-The dashboard also provides interactive slicers for:
+The dashboard provides interactive slicers for:
 
 -   Year
 -   Sales Channel
--   Product
+-   Product Category
 
-These filters allow users to analyze the dashboard from different
+These filters allow management to explore the dashboard from different
 business perspectives.
 
 ------------------------------------------------------------------------
 
 ## Dashboard Features
 
-The dashboard includes the following visualizations:
+The dashboard uses business questions instead of generic chart headings
+so that each visualization directly answers a management question.
 
-### Monthly Sales & Profit Trend
+### How do FreshMart's sales and profit change over time?
 
-A line chart compares monthly sales and profit to identify changes in
-performance over time.
+A line chart compares monthly Sales Amount and Profit.
 
-### Sales & Profit by Category
+**Business use:** - Identify stronger and weaker months. - Compare sales
+movement with profit movement. - Support planning for promotions and
+inventory.
 
-A category-level comparison shows how different product categories
-contribute to sales and profit.
+### Which categories drive sales and profit?
 
-### Top 10 Products
+A horizontal clustered bar chart compares Sales Amount and Profit across
+product categories.
 
-A ranked chart highlights the products generating the highest sales
-amounts.
+**Business use:** - Identify high-sales categories. - Identify
+high-profit categories. - Compare revenue contribution with
+profitability.
 
-### Sales by Channel
+### Which products drive sales and profit?
 
-A comparison of **In-Store, Mobile App and Online** sales channels shows
-where customers generate the most revenue.
+A ranked horizontal bar chart compares Sales Amount and Profit for the
+top-performing products.
 
+**Business use:** - Identify products that contribute strongly to
+revenue. - Identify products that also generate meaningful profit. -
+Support inventory and promotional decisions.
+
+### Which channels drive sales and profit?
+
+A channel comparison chart evaluates Sales Amount and Profit across:
+
+-   In-Store
+-   Online
+-   Mobile App
+
+**Business use:** - Identify the dominant revenue channel. - Compare
+profitability across channels. - Identify opportunities to strengthen
+weaker channels.
 
 ------------------------------------------------------------------------
 
@@ -233,43 +237,43 @@ where customers generate the most revenue.
 
 Based on the cleaned transaction data and dashboard analysis:
 
-### 1. Strong overall sales performance
+### 1. FreshMart generated ₹28.95 lakh in sales
 
-FreshMart generated approximately **₹28.95 lakh in sales** and **₹7.37
-lakh in profit** across **2,500 transactions**.
+The dataset contains **2,500 transactions**, generating approximately
+**₹28.95 lakh in sales** and **₹7.37 lakh in profit**.
 
 ### 2. In-Store is the dominant sales channel
 
-In-Store sales contribute approximately **₹19.91 lakh**, making it the
-largest sales channel.
+In-Store generated approximately **₹19.91 lakh in sales**, followed by:
 
-Online contributes approximately **₹6.15 lakh**, while Mobile App
-contributes approximately **₹2.89 lakh**.
+-   Online --- approximately **₹6.15 lakh**
+-   Mobile App --- approximately **₹2.89 lakh**
 
-This indicates that the physical-store experience remains the primary
-revenue driver.
+This indicates that the physical-store channel is currently FreshMart's
+strongest revenue contributor.
 
 ### 3. Beverages is the highest-sales category
 
-**Beverages** generated approximately **₹4.75 lakh in sales**, making it
-the strongest category by sales value.
+Beverages generated approximately **₹4.75 lakh in sales**, making it the
+highest-sales category.
 
-Other strong categories include:
+Other major categories include:
 
 -   Bakery --- approximately ₹3.65 lakh
 -   Dairy --- approximately ₹3.54 lakh
 -   Snacks --- approximately ₹2.92 lakh
 
-### 4. Bakery is a major profit contributor
+### 4. Bakery generates the highest category profit
 
-Although Beverages has the highest sales, **Bakery generates the highest
-profit** among the categories, at approximately **₹1.49 lakh**.
+Bakery generated approximately **₹1.49 lakh in profit**, higher than
+Beverages despite having lower sales.
 
-This indicates that sales volume alone does not determine profitability.
+This demonstrates that the category with the highest sales does not
+necessarily generate the highest profit.
 
-### 5. Product concentration
+### 5. High-performing products should be monitored
 
-The top-selling products include products such as:
+The top-selling products include:
 
 -   Harvest Gold Rusk 1kg
 -   Coca-Cola Coffee 500g
@@ -277,18 +281,24 @@ The top-selling products include products such as:
 -   Nestle Curd 1kg
 -   Nescafe Soft Drinks Pack
 
-These products should be closely monitored for stock availability and
-repeat demand.
+These products should be monitored for stock availability and demand
+continuity.
 
-### 6. Monthly performance varies considerably
+### 6. Sales and profit fluctuate across months
 
-The monthly trend shows noticeable fluctuations in sales and profit. In
-the available 2026 records, **March** is the strongest month by sales,
-with approximately **₹1.53 lakh**, while sales decline considerably in
-several later months.
+The monthly trend shows variation in both sales and profit. October is
+the strongest month in the available data, with approximately **₹3.44
+lakh in sales** and **₹85,183 in profit**.
 
-This suggests that seasonal demand, promotions, product availability or
-customer behavior may influence monthly performance.
+This indicates that FreshMart should monitor monthly performance rather
+than relying only on overall totals.
+
+### 7. Sales performance should be evaluated together with profitability
+
+A high sales value does not automatically mean the strongest business
+contribution. Comparing Sales Amount and Profit by category, product and
+channel helps management identify areas that support **profitable
+growth** rather than revenue alone.
 
 ------------------------------------------------------------------------
 
@@ -296,39 +306,59 @@ customer behavior may influence monthly performance.
 
 ### Recommendations
 
-Based on the data-backed business problem above, FreshMart should:
+Based on the analysis, FreshMart should:
 
-- Focus on **increasing orders/customer traffic**, since order volume was the primary driver of the January decline.
-- Use **weekend campaigns** to recover the 74.2% weekend sales drop.
-- Strengthen **Online and Mobile App promotions** because both digital channels declined by more than 70%.
-- Prioritize **Beverages, Bakery, Dairy and Rice** for inventory checks, bundles and targeted promotions.
-- Investigate the **West region** at store level because it recorded the largest regional decline.
-- Track **orders, quantity, average order value, sales and profit together** instead of relying on total sales alone.
-- Use month-on-month comparisons to identify early warning signs before a large decline occurs.
+-   Maintain strong inventory availability for high-sales products and
+    categories.
+-   Continue supporting Beverages as the leading sales category while
+    protecting Bakery because of its strong profit contribution.
+-   Evaluate products using both sales and profit before prioritizing
+    promotions.
+-   Maintain the strong In-Store channel while exploring opportunities
+    to increase Online and Mobile App contribution.
+-   Monitor monthly sales and profit trends to identify weaker periods
+    early.
+-   Use targeted promotions rather than relying only on broad discounts.
+-   Compare sales and profitability together when evaluating business
+    performance.
+-   Use the dashboard filters to investigate performance by year,
+    channel and product category.
 
 ### Conclusion
 
-The FreshMart analysis shows that the major January 2026 problem was **not simply lower spending per customer**. The strongest signal was the **67.3% fall in order volume**, accompanied by large declines across all sales channels, major categories and regions.
+The FreshMart analysis shows that the business has strong overall sales
+and profitability, but performance differs significantly across
+categories, products, channels and months.
 
-The recommended strategy is therefore to rebuild customer traffic and transaction frequency, strengthen digital and weekend campaigns, protect availability of high-demand categories, and investigate severely affected regions such as West.
+The analysis therefore recommends a **profitable-growth approach**:
+maintain high-performing products and categories, protect profitable
+segments, strengthen channel performance and use monthly trends to
+support better planning.
 
-This approach directly addresses the business problem identified from the transaction data rather than treating data cleaning as the problem itself.
-
+The dashboard converts the cleaned transaction data into an interactive
+decision-support tool that helps management understand **where sales
+come from, where profit is generated and where improvement opportunities
+exist**.
 
 ------------------------------------------------------------------------
 
-## 10. Project Outcome
+## Project Outcome
 
 This project demonstrates practical skills in:
 
 -   Excel data cleaning
 -   Power Query
+-   Data profiling
 -   Data analysis
 -   PivotTables and PivotCharts
--   KPI creation
--   Dashboard development
+-   KPI development
+-   Interactive dashboard creation
+-   Sales and profitability analysis
+-   Product and category analysis
+-   Channel performance analysis
 -   Business insight generation
 -   Data-driven recommendations
 
-The final output is an interactive FreshMart sales dashboard designed to
-support quick and effective business decision-making.
+The final output is an interactive **FreshMart Sales Analysis
+Dashboard** designed to convert raw transaction data into clear and
+actionable business insights.
