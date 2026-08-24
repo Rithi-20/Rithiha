@@ -57,7 +57,7 @@ from clinics
 group by established_year
 having count(*) >1;
 
-# SET OPERATORS
+# SET OPERATORS         SET OPERATIONS-SELECT
 # 1. UNION
 # 2. INTERSECT
 # 3. EXCEPT
@@ -77,7 +77,52 @@ SELECT established_year from Clinics; # we also use where condition
 # Intersect is binary so can only compare with two select statementts only
 
 
-# EXCEPT - same sytax as union . this will return rows exist in first query but not the second query 
+# EXCEPT -WE dont haeve except keyword instaed we use not in . this will return rows exist in first query but not the second query 
 # eg A=(1,2,3) B=(3,4,5)  -> res: (1,2)
-
+# eg for except :  select * from order_details where customer_id not in (select customer_name from customer where city = "Sydney");
 # UNION,UNION ALL,EXCEPT - we can use this with multiple select statement and even we can mis everything and work
+
+use Medicare;
+
+# Show doctors in Cardiology, Neurology or Orthopedics
+Select first_name,specialization from Doctors 
+where specialization in ('Cardiology', 'Neurology','Orthopedics');
+
+# Find hospital names containing 'Care'
+SELECT hospital_name
+FROM Hospitals
+WHERE hospital_name LIKE '%Care%';
+
+# or
+
+Select hospital_name from Hospitals 
+where 
+contains(hospital_name,'Care');
+
+# between
+select * from Employees where experience_years between 5 and 10;
+select * from Employees where experience_years not between 5 and 10;
+select * from Employees where experience_years between 'A' and 'P';
+
+# subqueries in
+select * from order_details where customer_id in (select customer_name from customer where city = "Sydney");
+
+# not in
+select * from order_details where customer_id not in('c0001','c002');
+
+
+# Note:
+#1. Aggregate functions ignore null values by default, i null values needs to be included use IFNULL() OR COALESCE() function to replace null values with default values.
+# IFNULL - Check for null values and replace with 0 
+# COALESCE() - Check for null values and replace but it can replace multiple values  
+#MODIFY in alter table is used to change datatype of existing column
+
+# Transaction
+# A sequence of one or more SQL Statements that are executed as a single unit of work.
+
+#Qualifiers:
+# It is used to specify the origin of column
+#Two types: Table Qualifier , Database qualifier
+# Table qualifier : eg SELECT Employee.employee_id . It is used when it involves multiple tables.
+# Database qualifier : eg database1.Employee.employee_id . It is used when same table name exist in multiple data base
+
