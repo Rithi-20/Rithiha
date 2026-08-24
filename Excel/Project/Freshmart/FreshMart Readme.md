@@ -138,11 +138,6 @@ identify data-quality issues.
 After cleaning and validation, the `Sales_Transactions` sheet was used
 as the primary source for the dashboard analysis.
 
-> **Note:** Missing categorical values such as Region or Product
-> Category should be handled using an explicit value such as `Unknown`
-> rather than assigning the mode, unless there is a documented business
-> reason to infer the missing value.
-
 ------------------------------------------------------------------------
 
 ## KPIs / Features Explained
