@@ -33353,19 +33353,7 @@ INSERT INTO Payments (payment_id, bill_id, patient_id, payment_date, payment_amo
 ('PY005000', 'BL000343', 'PT000214', '2024-08-21', 19940.26, 'Net Banking', 'Success');
 
 #DROP TABLE IF EXISTS Payments;
-#DROP TABLE IF EXISTS Billing;
-#DROP TABLE IF EXISTS Employees;
-#DROP TABLE IF EXISTS Laboratory;
-#DROP TABLE IF EXISTS Pharmacy;
-#DROP TABLE IF EXISTS Medicines;
-#DROP TABLE IF EXISTS Insurance;
-#DROP TABLE IF EXISTS Treatments;
-#DROP TABLE IF EXISTS Admissions;
-#DROP TABLE IF EXISTS Appointments;
-#DROP TABLE IF EXISTS Rooms;
-#DROP TABLE IF EXISTS Patients;
-#DROP TABLE IF EXISTS Departments;
-#DROP TABLE IF EXISTS Doctors;
+
 
 # Display all the tables 
 SHOW TABLES;

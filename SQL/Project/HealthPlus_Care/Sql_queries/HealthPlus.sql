@@ -41162,7 +41162,7 @@ FROM Billing;
 
 # 4. How many specialists are there?
 SELECT COUNT(*) AS Total_no_of_Specialists
-FROM Specialists; 
+FROM Specialists;
 
 # 5. What is the total revenue generated from billing?
 SELECT SUM(total_amount) AS Total_Revenue
