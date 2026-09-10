@@ -1,5 +1,12 @@
+#================================================================================================================================================================
+# Database creation
+#================================================================================================================================================================
 CREATE DATABASE Medicare;
 USE Medicare;
+
+#==================================================================================================================================================================
+# Table creation and insertion of values
+#==================================================================================================================================================================
 CREATE TABLE Hospitals(
 hospital_id VARCHAR(6) NOT NULL,
 hospital_name VARCHAR(100) NOT NULL,
@@ -33770,3 +33777,104 @@ select Hospitals.hospital_name,count(Doctors.doctor_id) as c_d
 from Hospitals inner join Doctors on Hospitals.hospital_id = Doctors.hospital_id
 Group by Hospitals.hospital_name
 order by c_d desc limit 1;
+
+# 31. Which departments have the highest appointment workload?
+SELECT d.department_name,COUNT(a.appointment_id) AS total_appointments
+FROM Appointments a
+JOIN Doctors dr
+ON a.doctor_id = dr.doctor_id
+JOIN Departments d
+ON dr.department_id = d.department_id
+GROUP BY d.department_id, d.department_name
+ORDER BY total_appointments DESC;
+
+# 32. Which hospitals have the highest number of admissions?
+SELECT h.hospital_name, COUNT(ad.admission_id) AS total_admissions
+FROM Admissions ad
+JOIN Hospitals h
+ON ad.hospital_id = h.hospital_id
+GROUP BY h.hospital_id, h.hospital_name
+ORDER BY total_admissions DESC;
+
+#33. What are the admission type patterns?
+SELECT admission_type,COUNT(*) AS total_admissions
+FROM Admissions
+GROUP BY admission_type
+ORDER BY total_admissions DESC;
+
+#34/ What are the admission status patterns?
+SELECT admission_status,COUNT(*) AS total_admissions
+FROM Admissions
+GROUP BY admission_status
+ORDER BY total_admissions DESC;
+
+#35. What is the average patient length of stay?
+
+SELECT
+    ROUND(
+        AVG(DATEDIFF(discharge_date, admission_date)),
+        2
+    ) AS average_length_of_stay_days
+FROM Admissions
+WHERE discharge_date IS NOT NULL
+  AND discharge_date >= admission_date;
+  
+# 36. How are rooms distributed by type?
+SELECT
+    room_type,
+    COUNT(room_id) AS total_rooms
+FROM Rooms
+GROUP BY room_type
+ORDER BY total_rooms DESC;
+
+# 37.  Which treatments have the highest activity?
+SELECT
+    treatment_name,
+    COUNT(treatment_id) AS treatment_count
+FROM Treatments
+GROUP BY treatment_name
+ORDER BY treatment_count DESC;
+
+# 38. Which laboratory tests have the highest volume?
+SELECT
+    test_name,
+    COUNT(lab_test_id) AS test_volume
+FROM Laboratory
+GROUP BY test_name
+ORDER BY test_volume DESC;
+
+# 39. Which medicine categories generate the highest sales?
+SELECT
+    m.category,
+    SUM(p.quantity) AS total_quantity_sold,
+    ROUND(SUM(p.total_price), 2) AS total_sales
+FROM Pharmacy p
+JOIN Medicines m
+    ON p.medicine_id = m.medicine_id
+GROUP BY m.category
+ORDER BY total_sales DESC;
+
+# 40. What is the total billed amount?
+SELECT ROUND(SUM(total_amount), 2) AS total_billed_amount
+FROM Billing;
+
+# 41. Which billing components contribute the most?
+SELECT
+    ROUND(SUM(room_charges), 2) AS room_charges,
+    ROUND(SUM(doctor_charges), 2) AS doctor_charges,
+    ROUND(SUM(medicine_charges), 2) AS medicine_charges,
+    ROUND(SUM(lab_charges), 2) AS lab_charges,
+    ROUND(SUM(other_charges), 2) AS other_charges,
+    ROUND(SUM(total_amount), 2) AS total_billed
+FROM Billing;
+
+# 42. What is the total payment collected?
+SELECT
+    ROUND(SUM(payment_amount), 2) AS total_payment_collected
+FROM Payments
+WHERE payment_status = 'Success';
+
+# 43. What is the gap between billed and collected amounts?
+SELECT SUM(b.total_amount) - SUM(p.payment_amount)
+FROM Billing b
+JOIN Payments p ON b.bill_id = p.bill_id;
