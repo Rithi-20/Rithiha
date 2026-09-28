@@ -113,8 +113,8 @@ select * from order_details where customer_id not in('c0001','c002');
 
 # Note:
 #1. Aggregate functions ignore null values by default, i null values needs to be included use IFNULL() OR COALESCE() function to replace null values with default values.
-# IFNULL - Check for null values and replace with 0 
-# COALESCE() - Check for null values and replace but it can replace multiple values  
+# IFNULL - Check for null values and replace with 0 or other values needs to be replaced.check only one value
+# COALESCE() - it will replace with first non null value .check multiple values
 #MODIFY in alter table is used to change datatype of existing column
 
 # Transaction
@@ -125,4 +125,20 @@ select * from order_details where customer_id not in('c0001','c002');
 #Two types: Table Qualifier , Database qualifier
 # Table qualifier : eg SELECT Employee.employee_id . It is used when it involves multiple tables.
 # Database qualifier : eg database1.Employee.employee_id . It is used when same table name exist in multiple data base
+SELECT name, IFNULL(bonus, 0) AS bonus
+FROM EMPLOYEES;
 
+SELECT
+    name,
+    COALESCE(phone, email, 'No Contact') AS contact
+FROM EMPLOYEES;
+
+#phone = NULL
+#email = arun@gmail.com
+
+# COALESCE(NULL, 'arun@gmail.com', 'No Contact')     o/p: arun@gmail.com
+
+
+#COALESCE(9876543210, 'bala@gmail.com', 'No Contact')  o/p: 9876543210
+
+# COALESCE(NULL, NULL, 'No Contact')    o/p: No Contact

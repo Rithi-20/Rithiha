@@ -33377,6 +33377,7 @@ DROP DATABASE MEDICARES;
 # This will return the databases that are in use 
 SELECT DATABASE();
 
+
 # This will Count the number of records in that table
 SELECT COUNT(*) AS Total_Hospitals FROM Hospitals;
 SELECT COUNT(*) FROM Departments;
@@ -33691,7 +33692,7 @@ from Departments
 INNER JOIN Hospitals ON Departments.hospital_id=Hospitals.hospital_id;
 
 # 15. How many doctors are associated with each hospital?
-select count(Doctors.doctor_id) , Hospitals.hospital_id , Hospitals.hospital_name
+select count(Doctors.doctor_id) ,Hospitals.hospital_name
 from Doctors inner join Hospitals On Doctors.hospital_id = Hospitals.hospital_id 
 group by Doctors.hospital_id;
 
@@ -33878,3 +33879,24 @@ WHERE payment_status = 'Success';
 SELECT SUM(b.total_amount) - SUM(p.payment_amount)
 FROM Billing b
 JOIN Payments p ON b.bill_id = p.bill_id;
+
+
+use Medicare;
+select gender from Doctors;
+select floor(avg(bed_capacity)) from Hospitals;   
+
+
+select specialization , count(*) as c from doctors
+group by specialization
+having c>50
+order by c desc;
+
+select * from Hospitals where bed_capacity>50 limit 5;
+
+select * from Hospitals where bed_capacity>50 or city = 'Coimbatore';
+
+select Hospitals.hospital_name, count(Departments.department_id) as c
+from Hospitals 
+inner join Departments on Hospitals.hospital_id = Departments.hospital_id
+group by Hospitals.hospital_id,Hospitals.hospital_name;
+
