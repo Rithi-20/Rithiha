@@ -245,148 +245,84 @@ The application supports multiple operations in the same session through the loo
 
 ---
 
-## 8. Validation and Error Handling
-
-The application handles:
-
-- Non-numeric input for integer fields.
-- Non-numeric input for decimal fields.
-- Values outside allowed ranges.
-- Empty Student IDs.
-- Empty student names.
-- Duplicate Student IDs.
-- Unknown Student IDs.
-- Invalid department selections through bounded menu input.
-- Invalid phone numbers.
-- Duplicate course registration.
-- Course withdrawal when no course is registered.
-- Operations on withdrawn students.
-- Empty active-student collections.
-- Invalid main-menu and submenu choices.
-
----
-
-## 9. Testing Scenarios
-
-The following scenarios should be tested before submission:
-
-| Test Case | Expected Result |
-|---|---|
-| Register a valid student | Student is added successfully. |
-| Register a duplicate Student ID | Registration is rejected. |
-| Search for an existing student | Student details are displayed. |
-| Search for an unknown Student ID | Error message is displayed. |
-| Select an invalid department menu option | Input is rejected and requested again. |
-| Register the same course twice | Duplicate registration is prevented. |
-| Withdraw a registered course | Course is removed from the student's course set. |
-| Enter invalid marks | Input is rejected until a value from 0–100 is entered. |
-| Enter invalid attendance | Input is rejected until a value from 0–100 is entered. |
-| Attendance below 75% | Student is marked not eligible. |
-| Attendance exactly 75% | Student is marked eligible. |
-| Student with a subject mark below 50 | Student is marked as failed. |
-| Student with all subject marks at least 50 | Student is marked as passed. |
-| Register multiple students | All valid students are stored and processed. |
-| Withdraw a student | Status becomes `Withdrawn`, but the record remains stored. |
-| Process active students after withdrawal | Withdrawn students are excluded. |
-| Use an empty student collection | Appropriate no-student message is displayed. |
-| Enter an invalid menu selection | Input is rejected. |
-| Perform multiple operations in one session | Application continues until Exit is selected. |
-| Select Exit | Application terminates with a thank-you message. |
-
-> Testing should be recorded separately in `testing/test_cases.md` with actual input values and observed results.
-
----
-
-## 10. Project Structure
+## 8. Project Structure
 
 ```text
-nova-university-python-data-structures/
-│
+Nova_Console_app/
+├── main.py
 ├── README.md
-├── student_service_portal.py
-│
-├── design/
-│   ├── business_requirements.md
-│   ├── ipo.md
-│   ├── data_structure_design.md
-│   ├── function_design.md
-│   ├── pseudocode.md
-│   └── flowchart.png
-│
-└── testing/
-    └── test_cases.md
+└── Output/
+    ├── Attendance Percentage.png
+    ├── Course overlap.png
+    ├── Course registration.png
+    ├── Department Information.png
+    ├── Marks.png
+    ├── Processed active students.png
+    ├── Result.png
+    ├── Student registration.png
+    ├── Student statistics.png
+    ├── Student update.png
+    ├── Student withdrawal.png
+    └── View student.png
 ```
 
----
-
-## 11. Assumptions
-
-1. Student data is stored in memory using a dictionary; data is not permanently saved after the program closes.
-2. The predefined courses are Python, Excel, SQL, and Power BI.
-3. The predefined departments are CSE, IT, AI&DS, ECE, and BBA.
-4. A student passes only if every subject mark is at least 50.
-5. Grade assignment is based on average marks.
-6. Attendance eligibility is based on a threshold of 75%.
-7. Withdrawal is implemented as a status change rather than permanent deletion.
-8. Withdrawn students remain searchable so that their preserved information can be viewed.
-9. Email format is currently accepted as text and is not checked using a dedicated email-format validator.
-10. Course-overlap analysis currently compares Python and SQL registrations.
+The `Output/` folder contains screenshots of the application's main features.
 
 ---
 
-## 12. Requirement Compliance Review
+## 9. Application Screenshots
 
-| Requirement Area | Status | Review |
-|---|---|---|
-| Console-based application | Satisfied | Runs through the Python terminal. |
-| Student registration | Satisfied | Stores the required student information. |
-| Duplicate Student ID prevention | Satisfied | Student IDs are dictionary keys and are checked before insertion. |
-| Department management | Satisfied | Departments are stored in a dictionary and displayed/validated through menu selection. |
-| Course registration | Satisfied | Uses a set and prevents duplicate courses. |
-| Academic marks | Satisfied | Subject-to-mark mapping is implemented with a dictionary. |
-| Attendance | Satisfied | Range validation and 75% eligibility are implemented. |
-| Examination result | Satisfied | Total, average, pass/fail, grade, and eligibility are implemented. |
-| Student search | Satisfied | Searches using Student ID. |
-| Course overlap analysis | Mostly satisfied | Set comparisons are implemented. Duplicate checking uses manually entered IDs rather than automatically auditing all stored registration records. |
-| Student processing | Satisfied | Active students are processed in a loop. |
-| Student statistics | Satisfied | Active-student statistics are implemented. |
-| Student withdrawal | Satisfied | Student is deactivated while information is preserved. |
-| Multiple operations per session | Satisfied | Main menu and service submenus use loops. |
-| Reusable functions | Satisfied | Input, calculation, validation, and service responsibilities are separated. |
-| IPO document | To be confirmed | Must be created in `design/ipo.md`. |
-| Pseudocode | To be confirmed | Must be created in `design/pseudocode.md`. |
-| Flowchart | To be confirmed | Must be created and saved as `design/flowchart.png`. |
-| Testing documentation | To be confirmed | Actual test execution and results must be recorded in `testing/test_cases.md`. |
-| GitHub repository update | To be completed | Push the final files and verify the repository structure. |
+The `Output/` folder contains 12 screenshots demonstrating the application's main features. These are **relative paths from the repository root**. Keep the `Output` folder beside `main.py` and `README.md`, and make sure each filename and extension matches the uploaded image file. The links below assume `.png` extensions.
 
----
+### Attendance Percentage
+![Attendance Percentage](Output/Attendance%20Percentage.png)
 
-## 13. Recommended Improvements Before Submission
+### Course Overlap
+![Course Overlap](Output/Course%20overlap.png)
 
-The core business requirements are implemented, but the following improvements are recommended:
+### Course Registration
+![Course Registration](Output/Course%20registration.png)
 
-1. Add email-format validation, for example checking for `@` and a domain.
-2. Automatically check duplicate Student IDs from stored registration data, although the dictionary already prevents duplicate keys.
-3. Add an explicit submenu loop to course-overlap analysis if repeated analyses are required without returning to the main menu.
-4. Create and verify the IPO, data-structure design, function design, pseudocode, and flowchart documents.
-5. Record real test executions with inputs, expected outputs, and observed outputs.
-6. Test the application manually from a clean start, including invalid inputs and withdrawal scenarios.
+### Department Information
+![Department Information](Output/Department%20Information.png)
 
----
+### Marks
+![Marks](Output/Marks.png)
 
-## 14. How to Run
+### Processed Active Students
+![Processed Active Students](Output/Processed%20active%20students.png)
+
+### Result
+![Result](Output/Result.png)
+
+### Student Registration
+![Student Registration](Output/Student%20registration.png)
+
+### Student Statistics
+![Student Statistics](Output/Student%20statistics.png)
+
+### Student Update
+![Student Update](Output/Student%20update.png)
+
+### Student Withdrawal
+![Student Withdrawal](Output/Student%20withdrawal.png)
+
+### View Student
+![View Student](Output/View%20student.png)
+
+## 10. How to Run
 
 Make sure Python 3 is installed.
 
 ```bash
-python student_service_portal.py
+python main.py
 ```
 
 Then follow the instructions displayed in the terminal.
 
 ---
 
-## 15. Learning Outcomes
+## 11. Learning Outcomes
 
 This project demonstrates practical use of:
 
